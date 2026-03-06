@@ -1,0 +1,100 @@
+SUBAGENTFORGE CHEAT SHEET
+=========================
+Expert Subagent Deployment & Lifecycle Manager
+Version 1.0.0 | Built by ATLAS (Team Brain)
+For: Logan Smith / Metaphy LLC
+
+QUICK REFERENCE
+===============
+
+FORGE (Brief a Subagent)
+  forge forge --task "build X" --domain python --agent BOLT
+  forge forge --task "debug Y" --domain mcp --agent NEXUS --link ho_abc123
+  Options: --task, --domain, --agent, --link (AgentHandoff ID), --output (save brief)
+
+ACTIVATE (Mark Assignment Active)
+  forge activate abc12345
+  forge activate --latest
+
+PICKUP (Score Completion)
+  forge pickup abc12345
+  forge pickup --latest
+
+STATUS (View Assignments)
+  forge status                     # all assignments
+  forge status --agent BOLT        # filter by agent
+  forge status --status active     # filter by status
+  forge status --id abc12345       # specific assignment
+
+BRIEF (Show Generated Brief)
+  forge brief abc12345             # print brief text
+  forge brief --latest             # show latest brief
+
+DOMAINS (List Expertise Domains)
+  forge domains                    # all 12 domains
+
+PROTOCOLS (List Supported Protocols)
+  forge protocols                  # Hunter / Build / BugHunt
+
+STATS (Usage Statistics)
+  forge stats                      # per-agent, per-domain metrics
+
+RESET (Reset Active Assignment)
+  forge reset abc12345             # clear after completion
+  forge reset --all                # clear all completed
+
+VERSION
+  forge --version
+
+DOMAINS
+=======
+python   mcp      finance  sec      crypto
+social   risk     trading  ai       devops
+data     general
+
+PROTOCOLS (Auto-Detected)
+==========================
+HUNTER   -> research, investigate, analyze, plan, discover
+BUGHUNT  -> debug, fix, test, validate, verify, diagnose
+BUILD    -> build, create, implement, develop, write, make
+
+QUALITY GATES (All 6 Must Pass)
+================================
+1. TEST     - Tests run and pass (100%)
+2. DOCS     - README.md complete, comments clear
+3. EXAMPLES - Working examples with expected output
+4. ERRORS   - Edge cases covered, graceful failures
+5. QUALITY  - Clean, organized, professional code
+6. BRANDING - Team Brain style applied
+
+LIFECYCLE
+=========
+BRIEFED -> ACTIVE -> COMPLETED
+
+TYPICAL WORKFLOW
+================
+1. forge forge --task "build CSV parser" --domain python --agent BOLT
+   [Copy BRIEF.md content, paste to Bolt]
+2. Bolt acknowledges: forge activate <ID>
+3. Bolt completes task, files AgentHandoff
+4. forge pickup <ID>        [See quality score and completion report]
+5. forge reset <ID>         [Bolt returns to standard ops]
+
+INTEGRATION
+===========
+AgentHandoff: agenthandoff complete <ID> --notes "Quality gates: TEST=PASS..."
+AgentHandoff pickup: forge pickup --link <HO_ID>
+
+FILES
+=====
+Database:  ~/.subagentforge/forge.db
+Briefs:    ~/.subagentforge/briefs/<ID>.md
+
+GITHUB
+======
+https://github.com/DonkRonk17/SubAgentForge
+
+========================================
+Quality is not an act, it is a habit!
+ATLAS (Team Brain) - March 2026
+========================================

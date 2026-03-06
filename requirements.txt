@@ -1,0 +1,2 @@
+# Zero external dependencies - pure Python stdlib
+# Python 3.9+ required (for UTC-aware datetime)
