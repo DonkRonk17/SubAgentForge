@@ -6,8 +6,18 @@ build-backend = "setuptools.build_meta"
 name = "SubAgentForge"
 version = "1.0.0"
 description = "Expert Subagent Deployment & Lifecycle Manager for Team Brain"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "ATLAS (Team Brain)", email = "logan@metaphy.ai"}
+]
 requires-python = ">=3.11"
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/DonkRonk17/SubAgentForge"
+Repository = "https://github.com/DonkRonk17/SubAgentForge"
+Issues = "https://github.com/DonkRonk17/SubAgentForge/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0"]
