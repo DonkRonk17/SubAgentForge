@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════════
+ SUBAGENTFORGE — QUICK START CHEAT SHEET
+═══════════════════════════════════════════════════
+
+INSTALL:
+  pip install -e C:\Users\logan\OneDrive\Documents\AutoProjects\SubAgentForge
+
+─────────────────────────────────────────────────── 
+ASSIGN A TASK TO A SUBAGENT:
+  forge forge --agent BOLT --task "Build the MCP server" --domain mcp
+  forge forge --agent ATLAS --task "Research Hurst exponent" --domain finance
+  forge forge --agent BOLT --task "Fix the pytest failures" --domain python
+  → Output: saf_YYYYMMDD_HHMMSS_xxxxxxxx + BRIEF.md printed
+
+COPY the BRIEF into the subagent prompt (or tell them to read the file path).
+
+─────────────────────────────────────────────────── 
+AFTER SUBAGENT REPORTS COMPLETION:
+  (They say: "COMPLETE. Handoff: ho_20260305_...")
+  forge pickup ho_20260305_... --assignment saf_... --gates TEST DOCS EXAMPLES
+  → Quality score printed. Report saved.
+
+─────────────────────────────────────────────────── 
+RESET THE SUBAGENT:
+  forge reset --agent BOLT
+  → Paste the output into the subagent to release it from expert mode.
+
+─────────────────────────────────────────────────── 
+INSPECT WORK:
+  forge status                        ← all assignments
+  forge status --agent BOLT           ← BOLT's assignments
+  forge status saf_20260305_...       ← specific assignment
+  forge brief saf_20260305_...        ← print the brief
+
+─────────────────────────────────────────────────── 
+INFO:
+  forge domains     ← list expertise domains
+  forge protocols   ← list protocols
+  forge stats       ← assignment statistics
+
+─────────────────────────────────────────────────── 
+PROTOCOL AUTO-DETECTION FROM TASK:
+  "build / create / implement / code / develop / refactor"  → Build Protocol V1
+  "research / investigate / analyse / plan / audit / design" → Hunter's Protocol
+  "debug / test / fix / validate / verify / qa"              → Bug Hunt Protocol
+
+─────────────────────────────────────────────────── 
+QUALITY SCORING (on pickup):
+  6 gates × 14pts = 84  +  handoff filed +10  +  content +6  =  100 max
+  < 70: WARNING — consider re-assigning
+  ≥ 90: HIGH QUALITY delivery confirmed
+
+─────────────────────────────────────────────────── 
+KEY PATHS:
+  Briefs:   ~/.subagentforge/briefs/
+  Reports:  ~/.subagentforge/reports/
+  Database: ~/.subagentforge/forge.db
+
+═══════════════════════════════════════════════════
